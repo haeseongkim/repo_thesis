@@ -1,5 +1,5 @@
 
-%h_prho behöver T_prho för samtliga regioner!!!!
+%h_prho behÃ¶ver T_prho fÃ¶r samtliga regioner!!!!
 
 %***********************************************************************************************************
 %* Water and steam properties according to IAPWS IF-97                                                     *
@@ -2322,10 +2322,10 @@ function h3_pT = h3_pT(p, T)
 if p < 22.06395    %Bellow tripple point
   Ts = T4_p(p);    %Saturation temperature
   if T <= Ts      %Liquid side
-    High_Bound = h4L_p(p); %Max h är liauid h.
+    High_Bound = h4L_p(p); %Max h Ã¤r liauid h.
     Low_Bound = h1_pT(p, 623.15);
   else
-    Low_Bound = h4V_p(p);  %Min h är Vapour h.
+    Low_Bound = h4V_p(p);  %Min h Ã¤r Vapour h.
     High_Bound = h2_pT(p, B23T_p(p));
   end 
 else                  %Above tripple point. R3 from R2 till R3.
@@ -3017,7 +3017,7 @@ if s < 9.155759395  && h < hMin
     return
 end
 
-%******Kolla 1 eller 4. (+liten bit över B13)
+%******Kolla 1 eller 4. (+liten bit Ã¶ver B13)
 if s >= -0.0001545495919  && s <= 3.77828134 
     if h < h4_s(s) 
         region_hs = 4;
@@ -3051,7 +3051,7 @@ if s >= -0.0001545495919  && s <= 3.77828134
     end
 end
 
-%******Kolla region 2 eller 4. (Övre delen av område b23-> max)
+%******Kolla region 2 eller 4. (Ã–vre delen av omrÃ¥de b23-> max)
 if s >= 5.260578707  && s <= 11.9212156897728 
     if s > 9.155759395  %Above region 4
         Tmin = T2_ps(0.000611, s);
@@ -3080,7 +3080,7 @@ if s >= 5.260578707  && s <= 11.9212156897728
         %function adapted to h(1073.15,s)
         hMax = -2.988734 * s ^ 4 + 121.4015 * s ^ 3 - 1805.15 * s ^ 2 + 11720.16 * s - 23998.33;
     end
-    if h < hMax   %Region 2. Över region 4.
+    if h < hMax   %Region 2. Ã–ver region 4.
         region_hs = 2;
         return
     else
@@ -3108,14 +3108,14 @@ if s >= 3.77828134  && s <= 4.41202148223476
     end
 end
 
-%Kolla region 3 eller 4 från kritiska punkten till övre delen av b23
+%Kolla region 3 eller 4 frÃ¥n kritiska punkten till Ã¶vre delen av b23
 if s >= 4.41202148223476  && s <= 5.260578707 
     hV = h4_s(s);
     if h < hV 
         region_hs = 4;
         return
     end
-    %Kolla om vi är under b23 giltighetsområde.
+    %Kolla om vi Ã¤r under b23 giltighetsomrÃ¥de.
     if s <= 5.048096828 
         TMax = T3_ps(100, s);
         vmax = v3_ps(100, s);
@@ -3127,8 +3127,8 @@ if s >= 4.41202148223476  && s <= 5.260578707
             region_hs = 0;
             return
         end
-    else %Inom området för B23 i s led.
-        if (h > 2812.942061)  %Ovanför B23 i h_led
+    else %Inom omrÃ¥det fÃ¶r B23 i s led.
+        if (h > 2812.942061)  %OvanfÃ¶r B23 i h_led
             if s > 5.09796573397125 
                 TMax = T2_ps(100, s);
                 hMax = h2_pT(100, TMax);
@@ -3144,11 +3144,11 @@ if s >= 4.41202148223476  && s <= 5.260578707
                 return
             end
         end
-        if (h < 2563.592004)    %Nedanför B23 i h_led men vi har redan kollat ovanför hV2c3b
+        if (h < 2563.592004)    %NedanfÃ¶r B23 i h_led men vi har redan kollat ovanfÃ¶r hV2c3b
             region_hs = 3;
             return
         end
-        %Vi är inom b23 området i både s och h led.
+        %Vi Ã¤r inom b23 omrÃ¥det i bÃ¥de s och h led.
         Tact = TB23_hs(h, s);
         pact = p2_hs(h, s);
         pBound = B23p_T(Tact);
@@ -3172,7 +3172,7 @@ if p < 0.000611657 || p > 100
     return
 end
 if p < 16.5292  %Bellow region 3, Check region 1,4,2
-    if v < v1_pT(p, 273.15) %Observe that this is not actually min of v. Not valid Water of 4°C is ligther.
+    if v < v1_pT(p, 273.15) %Observe that this is not actually min of v. Not valid Water of 4Â°C is ligther.
         Region_prho = 0;
         return
     end
@@ -3197,7 +3197,7 @@ if p < 16.5292  %Bellow region 3, Check region 1,4,2
         return
     end
 else %Check region 1,3,4,3,2 (Above the lowest point of region 3.)
-    if v < v1_pT(p, 273.15) %Observe that this is not actually min of v. Not valid Water of 4°C is ligther.
+    if v < v1_pT(p, 273.15) %Observe that this is not actually min of v. Not valid Water of 4Â°C is ligther.
         Region_prho = 0;
         return
     end
