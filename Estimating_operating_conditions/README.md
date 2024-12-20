@@ -1,6 +1,6 @@
 ## **lsq_estimation_multirun_QG_sim_interp_divload_centerline.ipynb**
 
-load: 3d data (G specific) (from 1.05 1.05), centerline data (G range)
+load: 3d data (G specific), centerline data (G range)
 
 plot: samples noise ellipse, analytical noise ellipse
 
