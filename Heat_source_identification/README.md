@@ -15,21 +15,21 @@ example outputs for IRN calculation (including 'IT_conversion_A_div_I_conversion
 
 ## IRN_automu_sim_reinitialize.ipynb
 single IRN solver (with reinitialization and adaptive mu)
- smoothed_holder_weights
+ smoothed_holder_weights.m
  
 load: (G, q, and shape specific)
 
 plot: initial guess, converged result, iteration statistics, edges
 
 ## IRN_automu_sim_reinitialize_runs.ipynb
- IRN_automu_sim_reinitialize_f
+ IRN_automu_sim_reinitialize_f.m
  
 load: (G, q, and shape specific)
 
 plot: MAE, regularization, estimated noise, edge feature, area feature, original shape
 
 ## IRN_Bayes_hybrid.ipynb
- MRF_line_process
+ MRF_line_process.m
  
 load: (G, q, and shape specific) & Tqbcs (G and q specific)
 
